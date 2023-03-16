@@ -1,0 +1,32 @@
+Transform: AWS::Serverless-2016-10-31
+Description: lambdas
+Globals:
+  Function:
+    Timeout: 20
+Resources:
+  SamFirstEndpointkv7a2Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: SamFirstEndpointkv7a2/hello-world/
+      Runtime: nodejs14.x
+      Handler: app.lambdaHandler
+      Description: SamFirstEndpointkv7a2
+      Events:
+          SamFirstEndpointkv7a2:
+             Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+             Properties:
+                Path: /SamFirstEndpointkv7a2
+                Method: get
+Outputs:
+# ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+# Find out more about other implicit resources you can reference within SAM
+# https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  SamFirstEndpointkv7a2Api:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/SamFirstEndpointkv7a2/"
+  SamFirstEndpointkv7a2Function:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt SamFirstEndpointkv7a2Function.Arn
+  SamFirstEndpointkv7a2FunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt SamFirstEndpointkv7a2FunctionRole.Arn
