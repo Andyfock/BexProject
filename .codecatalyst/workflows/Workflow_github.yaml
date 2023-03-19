@@ -31,8 +31,8 @@ Actions:
     Environment:
       Name: default_environment
       Connections:
-        - Name: "470962168698"
-          Role: CodeCatalystPreviewDevelopmentAdministrator-dqlhy5
+        - Name: "603832356557"
+          Role: CodeCatalystPreviewDevelopmentAdministrator-dxq1b5
   deploy_to_default_environment:
     Identifier: aws/cfn-deploy@v1
     Inputs:
@@ -41,8 +41,8 @@ Actions:
     Environment:
       Name: default_environment
       Connections:
-        - Name: "470962168698"
-          Role: CodeCatalystPreviewDevelopmentAdministrator-dqlhy5
+        - Name: "603832356557"
+          Role: CodeCatalystPreviewDevelopmentAdministrator-dxq1b5
     Configuration:
       Parameters:
         region: us-west-2
